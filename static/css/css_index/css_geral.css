@@ -1,0 +1,147 @@
+body{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url("/static/img/img_bot/MAOS_UNIAO.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-family: Inter;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/static/fonte/Inter/Inter-VariableFont_slnt\,wght.ttf');
+  }
+
+#div_head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    flex-direction: column;
+}
+
+#form_head{
+    font-size: 35px;
+    width: 500px;
+    justify-content: center;
+    display: flex;
+}
+
+hr{
+    border-color: black;
+    width: 40%;
+}
+
+a{ 
+    color: inherit; 
+    text-decoration: none;
+    margin: 0 15px;
+} 
+
+a:hover{
+    color: rgb(168, 8, 149);
+}
+
+#mainContentDiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#testeConteudo{
+    width: 35%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.imagens{
+    width: 110%;
+    margin-bottom: 20px;
+}
+
+#div_footer{
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    justify-content: right;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+
+#img_footer{
+    width: 100%;
+    margin-bottom: -10px;
+}
+
+#absolute {
+    position: absolute;
+    bottom: 130px;
+    right: 130px;
+}
+  
+#botoes-acao {
+    position: fixed; /* não defina top/bottom/left/right */  
+}
+
+.bnt_gardiao{
+    width: 60%;
+}
+
+#popupContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+#popupContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+#closePopup{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color:  red;
+    color: white;
+    border: none;
+    margin-left: 90px;
+}
+
+#botao_confirmar{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #7a027c;
+    color: white;
+    border: none;
+}
+
+#format{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+}

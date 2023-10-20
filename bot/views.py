@@ -10,25 +10,28 @@ import re
 
 def aila(request):
     chatbot = ChatBot("Aila")    
+    
+    if request.user.is_authenticated:
+        if request.method == 'GET':
 
-    if request.method == 'GET':
+            return render(request, 'aila.html')
+        elif request.method == 'POST':
+            pergunta_digitada = request.POST.get('pergunta')
+            resposta_digitada = chatbot.get_response(pergunta_digitada)
+            conversas = conversa(
+                pergunta=pergunta_digitada,
+                resposta=resposta_digitada
+            )
+            conversas.save()
 
-        return render(request, 'aila.html')
-    elif request.method == 'POST':
-        pergunta_digitada = request.POST.get('pergunta')
-        resposta_digitada = chatbot.get_response(pergunta_digitada)
-        conversas = conversa(
-            pergunta=pergunta_digitada,
-            resposta=resposta_digitada
-        )
-        conversas.save()
+            dialogo = conversa.objects.all()
+            delete = conversa.objects.all()
 
-        dialogo = conversa.objects.all()
-        delete = conversa.objects.all()
-
-        if pergunta_digitada == 'deletar':
-            delete.delete()
-        return render(request, 'aila.html', {'conversas':dialogo})
+            if pergunta_digitada == 'deletar':
+                delete.delete()
+            return render(request, 'aila.html', {'conversas':dialogo})
+    else:
+        return HttpResponse('Você não pode acessar essa página, faça primeiro o login')
     
 
 
@@ -40,14 +43,18 @@ def inicio(request):
         numero_limpo = re.sub(r'\D', '', numero)
         return numero_limpo
 
-    if request.method == "GET":
-        return render(request, 'index.html')
+    if request.user.is_authenticated:
+        if request.method == "GET":
+            return render(request, 'index.html')
+        else:
+            usuario = info_cadastro.objects.get(email= request.user)
+            mensagem = f'Estou em perigo! Segue a minha localização {usuario.endereco} bairro: {usuario.bairro}'
+            telefone = remover_formatacao_telefone(usuario.telefone_guardiao)
+            url_whatsapp = f"https://api.whatsapp.com/send?phone={telefone}&text={mensagem}"
+            return redirect(url_whatsapp)
     else:
-        usuario = info_cadastro.objects.get(email= request.user)
-        mensagem = f'Estou em perigo! Segue a minha localização {usuario.endereco} bairro: {usuario.bairro}'
-        telefone = remover_formatacao_telefone(usuario.telefone_guardiao)
-        url_whatsapp = f"https://api.whatsapp.com/send?phone={telefone}&text={mensagem}"
-        return redirect(url_whatsapp)
+         if request.method == "GET":
+            return render(request, 'index2.html')
     
 
 def faq(request):
@@ -55,14 +62,18 @@ def faq(request):
         numero_limpo = re.sub(r'\D', '', numero)
         return numero_limpo
 
-    if request.method == "GET":
-        return render(request, 'faq.html')
+    if request.user.is_authenticated:
+        if request.method == "GET":
+            return render(request, 'faq.html')
+        else:
+            usuario = info_cadastro.objects.get(email= request.user)
+            mensagem = 'Olá, está é uma mensagem programada'
+            telefone = remover_formatacao_telefone(usuario.telefone_guardiao)
+            url_whatsapp = f"https://api.whatsapp.com/send?phone={telefone}&text={mensagem}"
+            return redirect(url_whatsapp)
     else:
-        usuario = info_cadastro.objects.get(email= request.user)
-        mensagem = 'Olá, está é uma mensagem programada'
-        telefone = remover_formatacao_telefone(usuario.telefone_guardiao)
-        url_whatsapp = f"https://api.whatsapp.com/send?phone={telefone}&text={mensagem}"
-        return redirect(url_whatsapp)
+         if request.method == "GET":
+            return render(request, 'faq2.html')
     
 # conversa = [
         #     'Oi?', 

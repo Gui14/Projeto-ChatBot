@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/css_index/css_geral.css">
+</head>
+<body>
+    <div id="popupContainer">
+        <div id="popupContent">
+            <!-- Conteúdo do pop-up -->
+            <h2>Atenção!</h2>
+            <p>Deseja realmente acionar o guardião?</p>
+            <div id="format">
+                <form action="{% url 'inicio'%}" method="POST">{% csrf_token %}
+                    <button type="submit" id="botao_confirmar">Confirmar</button>
+                </form>
+                <button  id="closePopup">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <head>
+        <div id="div_head">
+            <div id="form_head">
+                <a href="{%url 'aila'%}">CHAT</a>
+    
+                <a href="{%url 'inicio'%}"><u>INÍCIO</u></a>
+                
+                <a href="{%url 'faq'%}">FAQ</a>
+            </div>
+            <hr>
+        </div>
+    </head>
+    <div>
+        <div id="mainContentDiv">
+            <div id = "testeConteudo">
+                <img src="/static/img/img_bot/3288175e129d645503bd035585ebec44.png" alt="" class="imagens">
+                <img src="/static/img/img_bot/image 3.png" alt="" class="imagens">
+                
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <div id="absolute">
+                <div id="botoes-acao">
+                    <img src="/static/img/img_bot/botao_guardiao 1.png" class="bnt_gardiao" id="botao_guarda">
+                </div>
+              </div>
+            <img src="/static/img/img_bot/Group 5.png" alt="" id="img_footer">
+        </div>
+    </footer>
+    <script src="/static/js/script_index.js"></script>
+</body>
+</html>

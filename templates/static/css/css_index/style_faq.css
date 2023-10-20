@@ -1,0 +1,26 @@
+#div_main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    flex-direction: column;
+}
+
+.div_botao{
+    display: flex;
+    flex-direction: row;
+    width: 38%;
+    margin-bottom: 1%;
+    
+}
+
+.botao{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 30px;
+    background-color: white;
+    border-radius: 5px;
+    border: 0px solid;
+}

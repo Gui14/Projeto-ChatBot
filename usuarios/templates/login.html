@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style_login.css">
+    <link rel="stylesheet" href="/static/css/styleLogin.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">|
+    <title>Login</title>
+</head>
+<body>
+    <section class="secao__login">
+        <div class="secao__login__walpaper">
+            <img src="/static/img/img_login/WOMANS_WALLPAPER.jpg" alt="">
+        </div>
+        <div class="secao__login__informacoes">
+            <h1 class="secao__titulo">BEM-VINDA!</h1>
+            <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+                <div class="secao__dados">
+                    <div class="secao__input">
+                        <div class="container__input">
+                            <span class="secao__input__icon">
+                                <img src="/static/img/img_login/cadeado_branco 1.png" class="icon" alt="icone perfil">
+                            </span>
+                            <input type="email" id="input__email" class="secao__input" placeholder="Email ID" name="email">
+                        </div>
+                        <div class="container__input">
+                            <span class="secao__input__icon">
+                                <img src="/static/img/img_login/perfil face branco 1.png" class="icon" alt="icone cadeado">
+                            </span>
+                            <input type="password" id="input__pass" class="secao__input" placeholder="Senha" name="senha">
+                        </div>
+                        <button type="submit" class="secao__submit">Cadastre-se</button>
+                    </div>
+                </div>
+            </form>
+            {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {{message.tags}}">{{message}}</div>
+                    {% endfor %}
+                {%endif%}    
+            <div class="secao__descricao">
+                <h2 class="secao__titulo__descricao">Não se cale!</h2> 
+                <p class="secao__descricao__texto">"Descubra uma plataforma dedicada a esclarecer suas dúvidas sobre as leis e direitos relacionados à violência contra a mulher. Proteja-se e conheça seus direitos hoje mesmo. Junte-se a nós na luta pela igualdade e segurança das mulheres."
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer class="rodape">
+        <div class="cor"></div>
+    </footer>
+</body>
+</html>

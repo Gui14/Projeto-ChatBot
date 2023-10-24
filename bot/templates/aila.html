@@ -31,16 +31,20 @@
         </div>
         <div id="box">
             <div id="tela">
-                {%for i in conversas%}
+                {% if pergunta %}
+                {% for i in pergunta %}
                 <div class="div_principal_pergunta">
                     <div class="div_pergunta">
-                        {{i.pergunta}}
+                        {{i}}
                     </div>
                 </div>
+                {% endfor %}
+                {% for x in resposta %}
                 <div class="div_resposta">
-                    {{i.resposta}}
+                    {{x}}
                 </div>
-                {%endfor%}
+                {% endfor %}
+                {% endif %}
                 <div id="footer">
 
                 </div>

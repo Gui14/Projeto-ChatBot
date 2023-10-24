@@ -18,18 +18,26 @@ def aila(request):
         elif request.method == 'POST':
             pergunta_digitada = request.POST.get('pergunta')
             resposta_digitada = chatbot.get_response(pergunta_digitada)
-            conversas = conversa(
-                pergunta=pergunta_digitada,
-                resposta=resposta_digitada
-            )
-            conversas.save()
+            pergunta =[]
+            resposta = []
 
-            dialogo = conversa.objects.all()
-            delete = conversa.objects.all()
+            pergunta.append(pergunta_digitada)
+            resposta.append(resposta_digitada)
+            print(pergunta)
+            print(resposta)
+            # conversas = conversa(
+            #     pergunta=pergunta_digitada,
+            #     resposta=resposta_digitada
+            # )
+            # conversas.save()
 
-            if pergunta_digitada == 'deletar':
-                delete.delete()
-            return render(request, 'aila.html', {'conversas':dialogo})
+            # dialogo = conversa.objects.all()
+            # delete = conversa.objects.all()
+
+            # if pergunta_digitada == 'deletar':
+            #     delete.delete()
+            return render(request, 'aila.html', {'pergunta': pergunta, 'resposta':resposta})
+            # {'conversas':dialogo}
     else:
         return HttpResponse('Você não pode acessar essa página, faça primeiro o login')
     

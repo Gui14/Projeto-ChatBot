@@ -140,3 +140,9 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'alert-success',
     constants.INFO: 'alert-info',
 }
+
+
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+

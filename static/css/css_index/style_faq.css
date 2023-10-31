@@ -11,16 +11,21 @@
     flex-direction: row;
     width: 38%;
     margin-bottom: 1%;
-    
+    border: 1px solid red;
+    background-color: black;
 }
 
 .botao{
-    width: 100%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 30px;
-    background-color: white;
+    background-color: black;
     border-radius: 5px;
     border: 0px solid;
+}
+
+.botao:hover{
+    background-color: white;
 }

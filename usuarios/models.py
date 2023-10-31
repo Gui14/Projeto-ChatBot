@@ -12,5 +12,7 @@ class info_cadastro (models.Model):
     email_guardiao = models.EmailField()
     telefone_guardiao = models.CharField(max_length=15)
     
+    def __str__(self):
+        return self.email
 
 

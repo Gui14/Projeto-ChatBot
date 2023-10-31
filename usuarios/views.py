@@ -42,6 +42,7 @@ def cadastrar(request):
             user = User.objects.create_user(
                 username=email,
                 password = senha,
+                email=email,
             )
             user_.save()
            

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/css/style_login.css">
     <link rel="stylesheet" href="/static/css/styleLogin.css">
     <link rel="stylesheet" href="/static/css/reset.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">|
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Login</title>
 </head>
 <body>
@@ -33,8 +33,8 @@
                         </div>
                         <div class="secao__link">
                             <button type="submit" class="secao__submit">Entrar</button>
-                            <a href="#" class="link">Não tem conta? Cadastre-se</a>
-                            <a href="#" class="link">Esqueceu a senha?</a>
+                            <a href="/usuarios/cadastro" class="link">Não tem conta? Cadastre-se</a>
+                            <a href="{% url 'password_reset' %}" class="link">Esqueceu a senha?</a>
                         </div>
                     </div>
                 </div>
@@ -51,10 +51,6 @@
             </div>
         </div>
     </section>
-    <footer>
-        <div class="rodape__cadastro">
-            <img src="./assets/img/DMM 1.png" alt="logo dmm" class="logo__dmm">
-        </div>
-    </footer>
+    
 </body>
 </html>

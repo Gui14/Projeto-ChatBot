@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/acessos.css">
+    <title>Redefinir senha</title>
+</head>
+<body>
+    <body class="body__tema">
+    <section class="secao__acesso_negado">
+            <img src="/static/img/cadeado2 2.png" class="img__deslike" alt="deslike">
+            <h2 class="secao__acesso title">Redefinição de senha</h2>
+            <p class="secao__acesso aviso">Informe seu e-mail e enviaremos um link para recuperação de sua senha.</p>
+            <form action="" method="post"> {% csrf_token %}
+                <div class="secao__acesso__opcoes">
+                    <input type="email" id="floatingInput" class="secao__input" placeholder="Email" autocomplete="off" name="email">
+                    <button class="secao__submit redefinir" type="submit">Enviar link de recuperação</button>
+                </div>
+            </form>
+    </section>
+    <footer>
+        <div class="rodape__cadastro">
+            <img src="/static/img/DMM.svg" alt="logo dmm" class="logo__dmm">
+        </div>
+    </footer>
+</body>
+</body>
+</html>

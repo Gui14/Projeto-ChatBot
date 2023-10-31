@@ -8,23 +8,34 @@ from django.contrib.auth.decorators import login_required
 from usuarios.models import info_cadastro
 import re
 
+from django.shortcuts import render
+from chatterbot import ChatBot
+
+from django.shortcuts import render
+from chatterbot import ChatBot
+
+from django.shortcuts import render
+from chatterbot import ChatBot
+
+from django.shortcuts import render
+from chatterbot import ChatBot
+from chatterbot.conversation import Statement
+
 def aila(request):
     chatbot = ChatBot("Aila")    
-    
+    pergunta =[]
+    resposta = []
+
     if request.user.is_authenticated:
         if request.method == 'GET':
-
             return render(request, 'aila.html')
         elif request.method == 'POST':
             pergunta_digitada = request.POST.get('pergunta')
             resposta_digitada = chatbot.get_response(pergunta_digitada)
-            pergunta =[]
-            resposta = []
-
+            
+            
             pergunta.append(pergunta_digitada)
             resposta.append(resposta_digitada)
-            print(pergunta)
-            print(resposta)
             # conversas = conversa(
             #     pergunta=pergunta_digitada,
             #     resposta=resposta_digitada

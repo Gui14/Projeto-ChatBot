@@ -1,0 +1,27 @@
+#hr{
+    width: 100%;
+}
+
+#div_conteudo{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(233, 224, 252);
+}
+
+#format_div_conteudo{
+    width:60%;
+}
+
+#format_img{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#img_nao_se_cale{
+    width: 70%;
+    margin-bottom: 20px;
+}

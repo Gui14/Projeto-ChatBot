@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="format_div">
+        <div id="div_redefinir">
+            <img src="/static/img/cadeado2 2.png" alt="">
+            <h1>Redefinição de senha</h1>
+            <h5>Crie uma nova senha</h5>
+            <form action="" method="post" id="form">{% csrf_token %}
+                <div>
+                <p>Nova senha:</p>
+                <input type="password" name="new_password1" autocomplete="new-password" required="true" class="input_senha">
+                </div>
+                <br>
+                <div>
+                <p>Repita a nova senha:</p>
+                <input type="password" name="new_password2" autocomplete="new-password" required="true" class="input_senha">
+                </div>
+                <br>
+                <button type="submit" id="botao_redefinir">Redefinir</button>
+            </form>
+            {{form.new_password1.errors}}
+            {{form.new_password2.errors}}
+        </div>
+    </div>
+    <span>
+        {% if msg %}
+            {{msg | safe}}
+        {% endif %}
+    </span>
+</body>
+</html>

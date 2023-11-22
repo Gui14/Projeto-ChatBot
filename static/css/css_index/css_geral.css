@@ -5,7 +5,7 @@ body{
     align-items: center;
     flex-direction: column;
     background: url("/static/img/img_bot/MAOS_UNIAO.png");
-    background-repeat: no-repeat;
+    background-repeat: inherit;
     background-size: 100%;
     font-family: Inter;
 }

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/static/css/css_index/css_geral.css">
+    <link rel="stylesheet" href="/static/css/css_index/css_relatos.css">
+    
+</head>
+<body>
+    <div id="popupContainer">
+        <div id="popupContent">
+            <!-- Conteúdo do pop-up -->
+            <h2>Atenção!</h2>
+            <p class="format_p">Deseja realmente acionar o guardião?</p>
+            <div id="format">
+                <form action="{% url 'inicio'%}" method="POST">{% csrf_token %}
+                    <button type="submit" id="botao_confirmar" name="botao_confirmar">Confirmar</button>
+                </form>
+                <button  id="closePopup">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <div id="popupContainer2">
+        <div id="popupContent2">
+            <!-- Conteúdo do pop-up -->
+            <h2>Atenção!</h2>
+            <p class="format_p">Deseja realmente acionar a patrulha?</p>
+            <div id="format2">
+                <form action="{% url 'inicio'%}" method="POST">{% csrf_token %}
+                    <button type="submit" id="botao_confirmar2" name="botao_confirmar2">Confirmar</button>
+                </form>
+                <button  id="closePopup2">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <head>
+        <div id="div_head">
+            <div id="form_head">
+                <a href="{%url 'aila'%}">CHAT</a>
+
+                <a href="{%url 'inicio'%}">INÍCIO</a>
+                
+                <a href="{%url 'faq'%}">FAQ</a>
+
+                <a href="{%url 'localdefala'%}"><u>FALA</u></a>
+            </div>
+            <br>
+            <hr>
+        </div>
+    </head>
+    <main>
+        <form action="{% url 'localdefala' %}" method="POST"> {% csrf_token %}
+            <div class="div_forum">
+                <div class="novo_relato">
+                    <div class="div_titulo_relato">
+                        <div>
+                            <p>Titulo</p>
+                            <input id = "entrada_titulo" type="text" placeholder="Insira o Titulo" name="ti" >
+                        </div>
+                        <div>
+                            <p>Codinome</p>
+                            <input id = "entrada_codinome"type="text" placeholder="Insira um codinome...." name="nome">
+                        </div>
+                    </div>
+                    <div class="div_corpo_relato">
+                        <p>Relato</p>
+                        <textarea id="entrada_corpo" cols="30" rows="10" placeholder="Diga algo..." name="corpo" ></textarea>
+                    </div>
+                    <div>
+                        <button onclick = "Cancelar()">Cancelar</button>
+                        <button  type="submit" name="enviar">Enviar</button>
+                    </div>
+                </div>
+                <div class = "relato_expandido">
+            
+                </div>
+                {% for i in local %}
+                <div class = "relato_conteudo">
+                    <a id = "relato_fala" onclick = "ExpandirRelato()">
+                        <div>
+                            <h2>{{i.titulo}}</h2>
+                            <p>{{i.relato}}</p>
+                            <h6>Autor: {{i.codinome}}</h6>
+                        </div>
+                    </a>
+                </div>
+                {%endfor%}
+            </div>
+        </form>
+            <div class = "extra_forum">
+                <a onclick = "NovoRelato()" id="novo"><img class = "button_icon" src="../IMG/documento.png" alt="">Novo Relato</a>
+            </div>
+    </main>
+    <footer>
+        <div>
+            <div id="absolute">
+                <div id="botoes-acao">
+                    <img src="/static/img/img_bot/botao_guardiao 1.png" class="bnt_gardiao" id="botao_guarda">
+                </div>
+              </div>
+        </div>
+        <div>
+            <div id="absolute2">
+                <div id="botoes-acao2">
+                    <img src="/static/img/img_bot/patrulha.png" class="bnt_gardiao2" id="botao_guarda2">
+                </div>
+              </div>
+            
+        </div>
+    </footer>
+    <script src="/static/js/script_relatos.js"></script>
+</body>
+</html>

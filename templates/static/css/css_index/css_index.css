@@ -1,5 +1,6 @@
 #hr{
     width: 100%;
+    color: black;
 }
 
 #div_conteudo{
@@ -24,4 +25,23 @@
 #img_nao_se_cale{
     width: 70%;
     margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    #format_div_conteudo{
+        width:80%;
+    } 
+
+    #img_nao_se_cale{
+        width: 18em;
+        margin-bottom: 20px;
+    }
+
+    #faq{
+        color: rgba(0, 0, 0, 0.519);
+    }
+
+    #chat{
+        color: rgba(0, 0, 0, 0.519);
+    }
 }

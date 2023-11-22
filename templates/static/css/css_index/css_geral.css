@@ -1,18 +1,24 @@
+*{
+    margin: 0;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
 body{
     margin: 0;
     padding: 0;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: url("/static/img/img_bot/MAOS_UNIAO.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
     font-family: Inter;
 }
 
 @font-face {
     font-family: 'Inter';
-    src: url('/static/fonte/Inter/Inter-VariableFont_slnt\,wght.ttf');
+    src: url('/static/fonte/Inter-VariableFont_slnt\,wght.ttf');
   }
 
 #div_head{
@@ -25,7 +31,6 @@ body{
 
 #form_head{
     font-size: 35px;
-    width: 500px;
     justify-content: center;
     display: flex;
 }
@@ -95,6 +100,20 @@ a:hover{
     width: 60%;
 }
 
+#absolute2 {
+    position: absolute;
+    bottom: 200px;
+    right: 130px;
+}
+  
+#botoes-acao2 {
+    position: fixed; /* não defina top/bottom/left/right */  
+}
+
+.bnt_gardiao2{
+    width: 40%;
+}
+
 #popupContainer {
     display: none;
     position: fixed;
@@ -143,4 +162,149 @@ a:hover{
     width: 100%;
     display:flex;
     flex-direction: row;
+}
+
+#popupContainer2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+#popupContent2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+#closePopup2{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color:  red;
+    color: white;
+    border: none;
+    margin-left: 90px;
+}
+
+#botao_confirmar2{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #7a027c;
+    color: white;
+    border: none;
+}
+
+#format2{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+}
+
+.format_p{
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
+
+@media (max-width: 600px) {
+    body{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: url("/static/img/img_bot/MAOS_UNIAO.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        font-family: Inter;
+        width: 100%;
+        overflow-x: hidden;
+        padding: 0;
+    }
+
+    .imagens{
+        width: 19em;
+    }
+
+    #absolute {
+        position: absolute;
+        bottom: 80px;
+        right: 80px;
+    }
+      
+    #botoes-acao {
+        position: fixed; /* não defina top/bottom/left/right */  
+    }
+    
+    .bnt_gardiao{
+        width: 50%;
+    }
+
+    #div_head{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        flex-direction: column;
+    }
+
+    hr{
+        border-color: black;
+        width: 0%;
+    }
+    
+    #popupContent {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        width: 300px;
+        height: 130px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+    }
+
+    #closePopup{
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+        background-color:  red;
+        color: white;
+        border: none;
+        margin-left: 90px;
+        margin-top: 10%;
+    }
+    
+    #botao_confirmar{
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+        background-color: #7a027c;
+        color: white;
+        border: none;
+        margin-top: 30%;
+    }
+
+    h2{
+        margin-bottom: 5%;
+    }
+
+    #form_head{
+        font-size: 30px;
+    }
 }

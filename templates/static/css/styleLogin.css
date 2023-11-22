@@ -1,12 +1,19 @@
+@import url("/static/css/style_login.css");
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/static/fonte/Inter/Inter-VariableFont_slnt\,wght.ttf');
+}
+
 body {
-    font-family: var(--font-inter);
+    overflow: hidden;
 }
 
 .secao__login {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    height: 95vh;
 }
 
 .secao__login__walpaper {
@@ -14,8 +21,21 @@ body {
 }
 
 .secao__login__walpaper img {
-    height: 105vh;
-    margin-top: 70px;
+    margin-top: 37px;
+    height: 101vh;
+}
+
+.secao__input {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.75em;
+}
+
+.container__input {
+    position: relative;
+    display: inline-block;
+    border-radius: 0.5em;
 }
 
 .secao__login__informacoes {
@@ -26,7 +46,12 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center; /* Centralizar o conteúdo horizontalmente */
-    gap: 3em;
+    gap: 2em;
+    font-family: Inter;
+}
+
+.imagem__celular {
+    display: none;
 }
 
 .secao__titulo {
@@ -34,25 +59,24 @@ body {
     font-weight: 500;
 }
 
-.secao__input {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 0.75em;
-    align-items: flex-end;
+.fa-solid  {
+    color: #fff;
 }
 
-.container__input {
-    position: relative;
-    display: inline-block;
-    border-radius: 0.5em;
+#input__email, #input__pass {
+    padding: 0 45px;
+    height: 2.5em;
+    width: 20em;
+    border-radius: 5px;
+    border: 0.1px solid #000;
 }
 
 .secao__input__icon {
     display: flex;
     position: absolute;
-    align-items: flex-start;
-    background-color: #3b1b72;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lilas);
     height: 100%;
     width: 10%;
     border-radius: 5px 0 0 5px;
@@ -61,32 +85,6 @@ body {
 .icon {
     height: 15px;
     margin: 0.5em;
-}
-
-#input__email, #input__pass {
-    padding: 0 35px;
-    height: 2.2em;
-    width: 18em;
-    border-radius: 5px;
-    border: 0.1px solid #000;
-}
-
-.secao__submit {
-    width: 6.8em;   
-    height: 2em;
-    border: 0;
-    border-radius: 5px;
-    text-align: center;
-    color: white;
-    background-color: #3b1b72;
-}
-
-.secao__submit:hover {
-    background-color: #3b1b72;
-}
-
-.secao__submit:active {
-    background-color: #561abd;
 }
 
 .secao__descricao {
@@ -101,10 +99,87 @@ body {
     font-weight: 600;
 }
 
-.rodape {
-    position: relative;
+.secao__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.8em;
+    font-size: 0.8em;
+    margin: 1em 0;
+}
+
+footer {
+    position: fixed;
     background-color: #333;
-    color: white;   
-    text-align: center;
-    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    padding: 1em 0; /* Centraliza o conteúdo horizontalmente */
+}
+
+
+@media screen and (max-width: 915px) {
+    .secao__login__informacoes {
+        padding: 0; /* Adicione algum espaçamento para separar os elementos internos */
+        box-sizing: border-box; /* Para incluir o padding no tamanho total */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center; /* Centralizar o conteúdo horizontalmente */
+        gap: 2em;
+        margin: 4.5em 0 3em;
+    }
+
+    .secao__titulo {
+        margin: 0.5em 0 1em;
+    }
+
+    .secao__login {
+        display: flex;
+        flex-direction: initial;
+        overflow-x: hidden;
+    }
+
+    .secao__login__wallpaper {
+        display: none;
+    }
+
+    .imagem__celular{
+        display: flex;
+        height: 10em;
+        gap: 0;
+        margin: 0;
+    }
+
+    #input__email, #input__pass {
+        padding: 0 45px;
+        height: 2.5em;
+        width: 15em;
+        border-radius: 5px;
+        border: 0.1px solid #000;
+    }
+    
+
+}
+
+@media screen and (max-width: 915px) {
+    #input__email, #input__pass {
+        padding: 0 45px;
+        height: 2.5em;
+        width: 10em;
+        border-radius: 5px;
+        border: 0.1px solid #000;
+    }
+
+    .secao__login__informacoes {
+        padding: 0; /* Adicione algum espaçamento para separar os elementos internos */
+        box-sizing: border-box; /* Para incluir o padding no tamanho total */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center; /* Centralizar o conteúdo horizontalmente */
+        gap: 0.5em;
+        margin: 7em 0 3em;
+    }
 }

@@ -4,20 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/css_index/css_geral.css">
     <link rel="stylesheet" href="/static/css/css_index/css_index.css">
+    
 </head>
 <body>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{message.tags}}">{{message}}</div>
+        {% endfor %}
+    {%endif%} 
     <div id="popupContainer">
         <div id="popupContent">
             <!-- Conteúdo do pop-up -->
             <h2>Atenção!</h2>
-            <p>Deseja realmente acionar o guardião?</p>
+            <p class="format_p">Deseja realmente acionar o guardião?</p>
             <div id="format">
                 <form action="{% url 'inicio'%}" method="POST">{% csrf_token %}
-                    <button type="submit" id="botao_confirmar">Confirmar</button>
+                    <button type="submit" id="botao_confirmar" name="botao_confirmar">Confirmar</button>
                 </form>
                 <button  id="closePopup">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <div id="popupContainer2">
+        <div id="popupContent2">
+            <!-- Conteúdo do pop-up -->
+            <h2>Atenção!</h2>
+            <p class="format_p">Deseja realmente acionar a patrulha?</p>
+            <div id="format2">
+                <form action="{% url 'inicio'%}" method="POST">{% csrf_token %}
+                    <button type="submit" id="botao_confirmar2" name="botao_confirmar2">Confirmar</button>
+                </form>
+                <button  id="closePopup2">Cancelar</button>
             </div>
         </div>
     </div>
@@ -29,6 +49,8 @@
                 <a href="{%url 'inicio'%}"><u>INÍCIO</u></a>
                 
                 <a href="{%url 'faq'%}">FAQ</a>
+
+                <a href="{%url 'localdefala'%}">FALA</a>
             </div>
             <hr>
         </div>
@@ -37,7 +59,7 @@
         <div id="mainContentDiv">
             <div id = "testeConteudo">
                 <img src="/static/img/img_bot/3288175e129d645503bd035585ebec44.png" alt="" class="imagens">
-                <img src="/static/img/img_bot/image 3.png" alt="" class="imagens">
+                
                 <br>
             </div>
         </div>
@@ -75,8 +97,28 @@
                 
                 Por tudo isso, Denuncie. <strong>NÃO SE CALE!</strong>
                 
-                </p><br>
-                <div id="format_img"><img src="/static/img/nao_se_cale.jpg"  id="img_nao_se_cale" alt=""></div>
+                </p>
+                <br>
+                <hr id="hr">
+
+                <br>
+                <h3>Você sabe o que é e como funciona a licença-maternidade?</h3><br> <br>
+                <p>
+                    A licença-maternidade é um direito das trabalhadoras, que garante o afastamento do emprego, sem gerar prejuízo no seu salário. A licença-maternidade é concedida em virtude do nascimento ou adoção de um filho. <br><br>
+
+                    Quem tem direito?<br><br>
+                    
+                    A licença-maternidade é direito concedido para as mulheres que contribuem com a Previdência Social (INSS).<br>
+                    A trabalhadora deverá continuar recebendo seu salário no valor total durante o afastamento e essa ausência temporária não deve comprometer sua estabilidade no emprego.<br><br>
+                    
+                    Para acessar esse direito, a gestante deve apresentar atestado médico onde deve constar a data do início do afastamento. A licença-maternidade pode ser iniciada no dia do parto ou até mesmo 28 dias antes.<br><br>
+                    
+                    As leis trabalhistas garante licença-maternidade de 120 dias para empregada que der à luz, que adotarem um filho ou que  obtenha guarda judicial de criança ou adolescente. Apenas em casos em que a mulher sofra um aborto espontâneo, ou seja, aqueles que não foram provocados, e comprovados por meio de atestado médico é que as mulheres têm direito a repouso de 2 semanas sem gerar descontos de seu salário.<br><br>
+                    
+                    E para que fique bem claro e você não se confunda: licença-maternidade é o direito que a mulher tem de se afastar do emprego, devido ao nascimento ou adoção do filho, ou caso sofra um aborto espontâneo, lembrando que, nas duas primeiras situações o afastamento é de 120 dias, em caso de aborto não provocado, 2 semanas. Já o auxílio-maternidade ou salário-maternidade é referente ao direito da mulher continuar recebendo seu salário durante esse afastamento.<br><br>
+                    
+                    Os valores pagos durante o afastamento são realizados pelo INSS. Importante ressaltar que as mulheres podem entrar em férias logo após o fim da licença-maternidade.
+                </p>
             </div>
         </div>
     </div>
@@ -85,6 +127,14 @@
             <div id="absolute">
                 <div id="botoes-acao">
                     <img src="/static/img/img_bot/botao_guardiao 1.png" class="bnt_gardiao" id="botao_guarda">
+                </div>
+              </div>
+            
+        </div>
+        <div>
+            <div id="absolute2">
+                <div id="botoes-acao2">
+                    <img src="/static/img/img_bot/patrulha.png" class="bnt_gardiao2" id="botao_guarda2">
                 </div>
               </div>
             

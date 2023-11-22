@@ -1,0 +1,275 @@
+:root {
+    --corfundo: rgba(233, 224, 252, 0);
+    --corEntradas: rgba(255, 255, 255, 0.50);
+    --bordaFraca: rgb(228, 85, 228);
+    --bordaForte: rgb(149, 2, 152);
+    --corEscura: #4E2597;
+}
+
+main { 
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 900px 300px;
+}
+
+a{ 
+    color: inherit; 
+    text-decoration: none;
+    margin: 0 15px;
+} 
+
+hr{
+    border: 0.5px solid gray;
+    width: 40%;
+}
+
+.div_forum {
+    padding: 10px;
+    padding-top: 0;
+    border-radius: 3px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    color: var(--corEscura);
+}
+
+.relato_conteudo {
+    width: auto;
+}
+
+.relato_conteudo div, h2, p {
+    margin: 0;
+}
+
+.relato_conteudo div {
+    border: 2px solid var(--bordaForte);
+    background-color: var(--corfundo);
+    padding: 5px;
+    border-radius: 3px;
+    width: auto;
+    max-height: 150px;
+    overflow: hidden;
+    overflow-wrap: break-word ;
+}
+
+.relato_conteudo p {
+    max-height: 40px;
+    overflow: hidden;
+}
+
+.relato_conteudo h6 {
+    margin: 1px;
+}
+
+.relato {
+    border: 2px solid var(--bordaForte);
+    background-color: var(--corfundo);
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.novo_relato {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    align-items: center;;
+    border: 2px solid var(--bordaForte);
+    background-color: var(--corfundo);
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.novo_relato input {
+    width: 300px;
+    border-radius: 3px;
+    background-color: white;
+    border: solid 2px var(--bordaForte);
+}
+
+.novo_relato textarea {
+    width: 800px;
+    border-radius: 3px;
+    background-color: white;
+    border: solid 2px var(--bordaForte);
+}
+
+.div_titulo_relato {
+    display: grid;
+    grid-template-columns: 400px 400px ;
+}
+
+button {
+    color: white;
+    background-color: var(--corEscura);
+    border: 0;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+#novo{
+    color: white;
+    background-color: var(--corEscura);
+    border: 0;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.extra_forum {
+    background-color: var(--corfundo);
+    border-radius: 3px;
+    top: 0%;
+    height: 300px;
+    width: 300px;
+    margin: 5px;
+    border-radius: 3px;
+    position: initial;
+}
+
+.extra_forum button {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 10px;
+}
+
+.button_icon {
+    height: 20px;
+    filter:invert();
+}
+
+#absolute {
+    position: absolute;
+    bottom: 130px;
+    right: 130px;
+}
+  
+#botoes-acao {
+    position: fixed; /* não defina top/bottom/left/right */  
+}
+
+.bnt_gardiao{
+    width: 60%;
+}
+
+#absolute2 {
+    position: absolute;
+    bottom: 200px;
+    right: 130px;
+}
+  
+#botoes-acao2 {
+    position: fixed; /* não defina top/bottom/left/right */  
+}
+
+.bnt_gardiao2{
+    width: 40%;
+}
+
+#popupContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+#popupContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+#closePopup{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color:  red;
+    color: white;
+    border: none;
+    margin-left: 90px;
+}
+
+#botao_confirmar{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #7a027c;
+    color: white;
+    border: none;
+}
+
+#format{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+}
+
+#popupContainer2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+#popupContent2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+#closePopup2{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color:  red;
+    color: white;
+    border: none;
+    margin-left: 90px;
+}
+
+#botao_confirmar2{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #7a027c;
+    color: white;
+    border: none;
+}
+
+#format2{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+}
+
+.format_p{
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}

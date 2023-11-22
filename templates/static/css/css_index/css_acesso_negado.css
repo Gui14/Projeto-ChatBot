@@ -1,0 +1,68 @@
+@import url("./style.css");
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Inter;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/static/fonte/Inter/Inter-VariableFont_slnt\,wght.ttf');
+  }
+
+
+.secao__acesso_negado {
+    margin: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3em;
+}
+
+.secao__acesso__title {
+    font-size: 2em;
+}
+
+.secao__acesso {
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+.aviso {
+    font-size: 1.5em;
+}
+
+.secao__acesso__opcoes {
+    display: flex;
+    align-items: center;    
+    gap: 2em;
+}
+
+.secao__submit {
+    width: 7em;   
+    height: 2em;
+    border: 0;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    background-color: #3b1b72;
+} 
+
+
+.secao__input {
+    width: 17em;
+    border: 1.5px solid #000;
+}
+
+@media screen and (max-width: 850px) {
+    .secao__acesso__opcoes {
+        display: flex;
+        flex-direction: column;
+    }
+   
+    .secao__input {
+        border: 1.5px solid #000;
+    }
+}

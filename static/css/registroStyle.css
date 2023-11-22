@@ -18,7 +18,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden
+    overflow: hidden;
+    background-image: linear-gradient(to bottom right, #f0ebf0, rgb(255, 151, 250));
 }
 
 .telaCadastro {

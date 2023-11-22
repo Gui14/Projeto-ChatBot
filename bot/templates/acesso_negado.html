@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/css_index/css_acesso_negado.css">
+    <title>Acesso Negado</title>
+</head>
+<body class="body__tema">
+    <section class="secao__acesso_negado">
+            <img src="/static/img/maonegativo.svg" class="img__deslike" alt="deslike">
+            <h2 class="secao__acesso__title">Você não pode acessar essa página!</h2>
+            <p class="secao__acesso aviso">Por favor, faça login ou cadastre-se aqui:</p>
+            <div class="secao__acesso__opcoes">
+                <a href="{% url 'login'%}" id="secao__acess_link">Já possuo uma conta</a>
+                <a href="{% url 'cadastrar' %}">
+                    <button class="secao__submit">
+                        Cadastra-se
+                    </button>
+                </a>
+            </div>
+    </section>
+</body>
+</html>

@@ -1,67 +1,49 @@
-@import url("./style.css");
-
-body {
-    font-family: var(--font-inter);
-    overflow: hidden;
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('/static/css/reset.css');
+:root {
+    --font-inter: 'Inter', sans-serif;
+    --lilas: #4E2597;
 }
 
-.secao__login {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 95vh;
+@font-face {
+    font-family: 'Inter';
+    src: url("/static/fonte/Inter/Inter-VariableFont_slnt\,wght.ttf");
 }
 
-.secao__login__walpaper {
-    flex: 1; /* A imagem ocupa todo o espaço disponível no lado esquerdo */
+.body__tema {
+    font-family: Inter;
+    background-image: url("/static/img/MAOS_UNIAO.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-.secao__login__walpaper img {
-    height: 95vh;
-}
-
-.secao__login__informacoes {
-    padding: 20px; /* Adicione algum espaçamento para separar os elementos internos */
-    box-sizing: border-box; /* Para incluir o padding no tamanho total */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center; /* Centralizar o conteúdo horizontalmente */
-    gap: 5em;
-}
-
-.secao__titulo {
+.title {
     font-size: 2em;
     font-weight: 500;
 }
 
-.fa-solid  {
-    color: #fff;
-}
-
-#input__email, #input__pass {
-    padding: 0 40px;
-    height: 2.2em;
-    width: 25em;
-    border-radius: 5px;
-    border: 0.1px solid #000;
-}
-
-.secao__input__icon {
+.secao__input {
     display: flex;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--lilas);
-    height: 100%;
-    width: 10%;
-    border-radius: 5px 0 0 5px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.75em;
 }
 
-.icon {
-    height: 15px;
-    margin: 0.5em;
+.container__input {
+    position: relative;
+    display: inline-block;
+    border-radius: 0.5em;
+}
+
+.secao__submit {
+    width: 7em;   
+    height: 2em;
+    border: 0;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    background-color: var(--lilas);
 }
 
 .secao__submit:hover {
@@ -72,36 +54,41 @@ body {
     background-color: #561abd;
 }
 
-.secao__descricao {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    width: 70%;
-}
-
-.secao__titulo__descricao {
-    font-size: 2.5em;
-    font-weight: 600;
-}
-
-.secao__link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    font-size: 0.8em;
-    margin: 1em 0;
-    width: 100%;
+.logo__dmm {
+    height: 1em;
 }
 
 a {
-    color: #000;
+    color: black;
 }
 
-.rodape {
-    position: relative;
+a:active {
+    color: #561abd;
+}
+
+.rodape__cadastro {
+    max-width: 90%; /* Largura máxima do conteúdo do rodapé */
+    margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+    text-align: end;
+    
+}
+
+.logo__dmm {
+    height: 1em;
+}
+
+a {
+    color: black;
+}
+
+a:active {
+    color: #561abd;
+}
+
+footer {
+    position: fixed;
     background-color: #333;
-    color: white;   
-    text-align: center;
-    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    padding: 1em 0; /* Centraliza o conteúdo horizontalmente */
 }

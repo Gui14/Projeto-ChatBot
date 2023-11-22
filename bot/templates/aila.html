@@ -11,19 +11,32 @@
         <div id="popupContent">
             <!-- Conteúdo do pop-up -->
             <h2>Atenção!</h2>
-            <p>Deseja realmente acionar o guardião?</p>
+            <p class="format_p">Deseja realmente acionar o guardião?</p>
             <div id="format">
                 <form action="{% url 'inicio'%}" method="POST">{% csrf_token %}
-                    <button type="submit" id="botao_confirmar">Confirmar</button>
+                    <button type="submit" id="botao_confirmar" name="botao_confirmar">Confirmar</button>
                 </form>
                 <button  id="closePopup">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <div id="popupContainer2">
+        <div id="popupContent2">
+            <!-- Conteúdo do pop-up -->
+            <h2>Atenção!</h2>
+            <p class="format_p">Deseja realmente acionar a patrulha?</p>
+            <div id="format2">
+                <form action="{% url 'inicio'%}" method="POST">{% csrf_token %}
+                    <button type="submit" id="botao_confirmar2" name="botao_confirmar2">Confirmar</button>
+                </form>
+                <button  id="closePopup2">Cancelar</button>
             </div>
         </div>
     </div>
     <div id="div_principal">
         <div id="div_lateral">
             <div id="div_voltar">
-                <a href="{% url 'inicio'%}"><button id="voltar">Voltar</button></a>
+                <a href="{% url 'inicio'%}"><img src="/static/img/Group 8.png" alt=""></a>
             </div>
             <div>
                 <h1>Aila</h1>
@@ -50,9 +63,9 @@
                 </div>
             </div>
             <div id="entrada">
-                <form action="/nome_site/aila/" method="POST" id="formulario"> {% csrf_token %}
+                <form action="/cuide-se/aila/" method="POST" id="formulario"> {% csrf_token %}
                     <input type="text" id="texto" name="pergunta">
-                    <button  id="enviar" onclick="adicionar()">Enviar</button>
+                    <button  id="enviar" onclick="adicionar()" name="enviar">Enviar</button>
                 </form>
             </div>
         </div>
@@ -64,7 +77,15 @@
                     <img src="/static/img/img_bot/botao_guardiao 1.png" class="bnt_gardiao" id="botao_guarda">
                 </div>
               </div>
-            <img src="/static/img/Group 7.png" alt="" id="img_footer">
+              <img src="/static/img/img_bot/Group 5.png" id="img_footer" alt="">
+        </div>
+        <div>
+            <div id="absolute2">
+                <div id="botoes-acao2">
+                    <img src="/static/img/img_bot/patrulha.png" class="bnt_gardiao2" id="botao_guarda2">
+                </div>
+              </div>
+            
         </div>
     </footer>
     <script>
@@ -78,6 +99,24 @@
         document.getElementById("closePopup").addEventListener("click", function() {
             document.getElementById("popupContainer").style.display = "none";
         });
+        
+        document.getElementById("botoes-acao2").addEventListener("click", function() {
+            document.getElementById("popupContainer2").style.display = "block";
+        });
+        
+        document.getElementById("closePopup2").addEventListener("click", function() {
+            document.getElementById("popupContainer2").style.display = "none";
+        });
+        
+        document.getElementById('botao_confirmar').addEventListener('click', function() {
+            document.getElementById('formulario-guardiao').submit();
+        });
+        
+        document.getElementById('botao_confirmar2').addEventListener('click', function() {
+            document.getElementById('formulario-patrulha').submit();
+        });
+            
+
     </script>
 </body>
 </html>

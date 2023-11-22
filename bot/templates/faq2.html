@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="/static/css/css_index/style_faq.css">
 </head>
 <body>
+    <div id="popupContainer">
+        <div id="popupContent">
+            <!-- Conteúdo do pop-up -->
+            <h2>Atenção!</h2>
+            <p>Deseja realmente acionar o guardião?</p>
+            <div id="format">
+                <form action="{% url 'inicio'%}" method="POST">{% csrf_token %}
+                    <button type="submit" id="botao_confirmar">Confirmar</button>
+                </form>
+                <button  id="closePopup">Cancelar</button>
+            </div>
+        </div>
+    </div>
     <head>
         <div id="div_head">
             <div id="form_head">
@@ -16,6 +29,8 @@
                 <a href="{%url 'inicio'%}">INÍCIO</a>
                 
                 <a href="{%url 'faq'%}"><u>FAQ</u></a>
+
+                <a href="{%url 'localdefala'%}">FALA</a>
             </div>
             <hr>
         </div>
@@ -25,34 +40,112 @@
                 <div id = "testeConteudo">
                     <img src="/static/img/img_bot/3288175e129d645503bd035585ebec44.png" alt="" class="imagens">
                 </div>
-                <div class="div_botao">
-                    <button class="botao" onmouseover="mudar_imagem()" onmouseleave="mudar_imagem_down()">
-                        <img src="/static/img/img_bot/Polygon 2.0.png" class="imagem">
-                    </button>
-                </div>
-                <div class="div_botao">
-                    <button class="botao" onmouseover="mudar_imagem()" onmouseleave="mudar_imagem_down()">
-                        <img src="/static/img/img_bot/Polygon 2.0.png" alt="" class="imagem">
-                    </button>
-                </div>
-                <div class="div_botao">
-                    <button class="botao" onmouseover="mudar_imagem()" onmouseleave="mudar_imagem_down()">
-                        <img src="/static/img/img_bot/Polygon 2.0.png" alt="" class="imagem">
-                    </button>
-                </div>
-                <div class="div_botao" onmouseover="mudar_imagem()" onmouseleave="mudar_imagem_down()">
-                    <button class="botao">
-                        <img src="/static/img/img_bot/Polygon 2.0.png" alt="" class="imagem">
-                    </button>
+                <div id="div_faq">
+                    <div class="div_botao">
+                        <button class="botao">
+                            Qual o primeiro passo para se proteger contra violência doméstica e familiar?
+                        </button>
+                        <div class="resposta">
+                            <p>
+                                <strong>Buscar ajuda!</strong> As mulheres em situação de violência doméstica
+                                e familiar devem, para a sua proteção e a de seus familiares,
+                                ir a qualquer delegacia ou a uma Delegacia da Mulher (DEAM)
+                                para o registro do Boletim da Ocorrência (BO) contra seu 
+                                agressor, em qualquer dia da semana ou horário do dia ou da
+                                noite. Elas poderão fazer o BO sozinhas ou acompanhadas de
+                                pessoas de sua confiança, ou um advogado.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="div_botao">
+                        <button class="botao">
+                            Quais órgãos públicos têm por obrigação legal atender as mulheres vítimas de violência doméstica, familiar e sexual?
+                        </button>
+                        <div class="resposta">
+                            <p>
+                                <strong>Delegacia de Polícia ou Delegacia da Mulher (DEAM)</strong> faz o registro do Boletim de Ocorrência e apura todas as informações e provas necessárias
+                                ao inquérito policial, como estabelecido na Lei Maria da Penha. Todas essas informações devem ser enviadas ao Ministério Público ou Juizado.
+                                Nenhuma autoridade policial pode se recusar a registrar o Boletim de Ocorrência. <br><br>
+                                <strong>Ministério Público</strong> apresenta a denúncia à Justiça. <br><br>
+                                <strong>Defensoria Pública</strong> defende gratuitamente as mulheres. <br><br>
+                                <strong>Juizado da Violência Doméstica/ Varas de Violência Doméstica e Varas Criminais</strong> julgam os casos que 
+                                lhes são encaminhados e determinam as medidas de proteção e a execução 
+                                da sentença. <br><br>
+                                <strong>Hospitais Públicos</strong> atendem as mulheres vítimas de violência sexual e garantem o acesso aos 
+                                serviços de contracepção de emergência (pílula do dia seguinte), doenças 
+                                sexualmente transmissíveis/AODS e aborto legal.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="div_botao">
+                        <button class="botao">
+                            Que apoio a lei assegura às mulheres?
+                        </button>
+                        <div class="resposta">
+                            <p>
+                                <strong>Centro de Referência de Atendimento à Mulher (CRAM)</strong> oferece apoio psicológico e social. <br>
+                                Casa Abrigo acolhe as mulheres e seus filhos e filhas em risco de morte e presta assistência psicológica e jurídica. <br>
+                                CREAS – Centro de Referência Especializada da Assistência Social oferece ajuda psicológica e social para os casos de violência. <br>
+                                CRAS – Centro de referência e Assistência Social oferece ajuda psicológica e social. <br>
+                                IML – Instituto Médico Legal realiza o exame de corpo de delito e outros exames periciais necessários.  <br>
+                                Serviço de Atenção à Violência Sexual (existe em algumas cidades) oferece atendimento médico às mulheres que sofrem violência sexual. <br><br>
+                                <strong>Centros de Saúde</strong> oferecem o atendimento de prevenção e atenção à saúde da população. <br>
+                                <strong>Programas de Assistência e de Inclusão Social dos Governos Federal, Estadual e Municipal </strong>– a inclusão nesses programas deve ser solicitada pelas mulheres ao Juizado ou Ministério Público. <br>
+                                <strong>Programas de Qualificação Profissional e Inserção no Mercado de Trabalho</strong> – a inclusão nesses programas deve ser solicitada pelas mulheres ao Juizado ou Ministério Público. <br>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="div_botao">
+                        <button class="botao">
+                            O que diz a lei sobre garantur a proteção das mulheres e da sua família?
+                        </button>
+                        <div class="resposta">
+                            <p>
+                                <strong>Medidas Protetivas de Urgência</strong> – afastamento do agressor do lar; suspensão da posse ou registro de posse de arma; comunicação sobre saída do agressor 
+                                da prisão; proibição de determinadas condutas (proibição de aproximação das mulheres 
+                                e de seus familiares com limite mínimo de distância ; proibição do contato com as mulheres e 
+                                seus familiares por qualquer meio de comunicação; proibição do agressor de 
+                                frequentar determinados lugares; restrição, suspensão de visitas do agressor aos dependentes; prestação de alimentos provisórios e prisão preventiva). <br>
+                                Em casos de risco de morte, o juiz pode determinar o acolhimento as mulheres e de seus filhos e filhas em 
+                                Casas Abrigo ou lugar protegido. A Delegacia de Polícia deve oferecer transporte às mulheres e seus dependentes para deslocamento a um abrigo ou local seguro, ajudando, se necessário, na retirada de seus pertences do domicílio familiar.
+                                O agressor pode ser preso em flagrante, isto é, no ato ou logo após a agressão às mulheres. 
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="div_botao">
+                        <button class="botao">
+                            O que diz a lei sobre garantir a guarda dos filhos e o patrimônio das mulheres?
+                        </button>
+                        <div class="resposta">
+                            <p>
+                                As mulheres que sofrem violência, mesmo que saiam de casa, não perdem
+                                a guarda dos filhos, têm direito assegurado à pensão alimentícia e não
+                                perdem os seus bens.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="div_botao">
+                        <button class="botao">
+                            A lei vale somente para pessoas casadas?
+                        </button>
+                        <div class="resposta">
+                            <p>
+                                <strong>Não</strong>. Relacionamentos afetivos com maridos,
+                                companheiros, noivos ou namorados, mesmo que não morem sob o mesmo teto,
+                                inclusive após o fim do relacionamento afetivo, podem ser enquadrados na
+                                Lei Maria da Penha. <br> <br>
+                                Isso também vale para os casais formados por duas mulheres. <br><br>
+                                <strong>FONTE:</strong> <br>
+                                Respeita As Mina, obra da Secretaria de Políticas para as Mulheres.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 </div>
             </div>
-    <footer>
-        <div>
-            <img src="/static/img/img_bot/Group 5.png" alt="" id="img_footer">
-        </div>
-    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="/static/js/script_faq.js"></script>
+    <script src="/static/js/script_faq_2.js"></script>
 </body>
 </html>

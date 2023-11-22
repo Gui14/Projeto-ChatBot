@@ -19,6 +19,7 @@ def cadastrar(request):
         nome_guardiao = request.POST.get('nome_guardiao')
         email_guardiao = request.POST.get('email_guardiao')
         telefone_guardiao = request.POST.get('telefone_guardiao')
+        numero_processo = request.POST.get('numero_processo')
 
         if len(senha) <= 5:
             messages.add_message(request, constants.ERROR, 'A senha deverá conter 6 caracteres ou mais' )
@@ -37,7 +38,8 @@ def cadastrar(request):
                 telefone = telefone,
                 nome_guardiao = nome_guardiao,
                 email_guardiao = email_guardiao,
-                telefone_guardiao = telefone_guardiao
+                telefone_guardiao = telefone_guardiao,
+                numeroprocesso = numero_processo
             )
             user = User.objects.create_user(
                 username=email,
@@ -59,7 +61,7 @@ def logar(request):
         if user:
             login(request, user)
 						# Acontecerá um erro ao redirecionar por enquanto, resolveremos nos próximos passos
-            return redirect('/nome_site/inicio')
+            return redirect('/cuide-se/inicio')
         else:
             messages.add_message(request, constants.ERROR, 'Usuario ou senha inválidos')
             return redirect('/usuarios/login')

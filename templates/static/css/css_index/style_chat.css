@@ -21,6 +21,11 @@ body{
     
 }
 
+h1{
+    font-size: 40px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+}
+
 #box{
     display: flex;
     align-items: center;
@@ -153,8 +158,8 @@ li{
     flex-direction: column;
     align-items: center;
     color: white;
-    border-right: 2px solid rgb(203, 103, 199);
-    background-color: #7a027c;
+    box-shadow: 2px 0px 10px rgb(95, 4, 113);
+    background-image: linear-gradient(to bottom right, #7a027c, rgb(228, 85, 228));
 }
 
 #div_voltar{
@@ -173,7 +178,6 @@ li{
     border:1px solid white; 
     background-color: #7a027c;
     color: white;
-    font-size; 30px;
     border-radius: 5px;
 }
 
@@ -201,6 +205,20 @@ li{
 }
 
 .bnt_gardiao{
+    width: 70%;
+}
+
+#absolute2 {
+    position: absolute;
+    bottom: 200px;
+    right: 70px;
+}
+  
+#botoes-acao2 {
+    position: fixed; /* não defina top/bottom/left/right */  
+}
+
+.bnt_gardiao2{
     width: 70%;
 }
 
@@ -252,4 +270,128 @@ li{
     width: 100%;
     display:flex;
     flex-direction: row;
+}
+
+a{
+    margin-left:15px;
+    margin-top:15px;
+}
+
+#popupContainer2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+#popupContent2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+#closePopup2{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color:  red;
+    color: white;
+    border: none;
+    margin-left: 90px;
+}
+
+#botao_confirmar2{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #7a027c;
+    color: white;
+    border: none;
+}
+
+#format2{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+}
+
+.format_p{
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
+
+@media (max-width: 450px) {
+    #div_lateral{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        border: 0 solid;
+    }
+    #div_principal{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #div_voltar{
+        margin-left: 10px;
+        margin-top: 0px;
+    }
+
+    #box{
+        height: 700px;
+        width: 100%;
+    }
+
+    #tela{
+    
+        width: 100%;
+    }
+
+    #footer{
+        height:100px ;
+    }
+
+    #entrada{
+        margin: 0;
+        top: 85%;
+        left: 2%;
+        z-index: 99;
+        width: 100%;
+    }
+
+    #texto{
+        width: 65%;
+    }
+    
+    #enviar{
+        width: 25%;
+    }
+
+    #absolute {
+        position: absolute;
+        bottom: 170px;
+        right: 70px;
+    }
+      
+    #div_voltar{
+        width: 155px;
+    }
+
+    .bnt_gardiao{
+        width: 60%;
+    }
+    
 }

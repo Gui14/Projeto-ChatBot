@@ -6,20 +6,12 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 from .models import conversa
 from django.contrib.auth.decorators import login_required
 from usuarios.models import info_cadastro
+from .models import relato_fala
 import re
+from django.core.mail import send_mail
+from django.contrib.messages import constants
+from django.contrib import messages
 
-from django.shortcuts import render
-from chatterbot import ChatBot
-
-from django.shortcuts import render
-from chatterbot import ChatBot
-
-from django.shortcuts import render
-from chatterbot import ChatBot
-
-from django.shortcuts import render
-from chatterbot import ChatBot
-from chatterbot.conversation import Statement
 
 def aila(request):
     chatbot = ChatBot("Aila")    
@@ -29,7 +21,7 @@ def aila(request):
     if request.user.is_authenticated:
         if request.method == 'GET':
             return render(request, 'aila.html')
-        elif request.method == 'POST':
+        elif 'enviar' in request.POST:
             pergunta_digitada = request.POST.get('pergunta')
             resposta_digitada = chatbot.get_response(pergunta_digitada)
             
@@ -49,51 +41,181 @@ def aila(request):
             #     delete.delete()
             return render(request, 'aila.html', {'pergunta': pergunta, 'resposta':resposta})
             # {'conversas':dialogo}
-    else:
-        return HttpResponse('Você não pode acessar essa página, faça primeiro o login')
-    
-
-
-
-def inicio(request):
-
-    def remover_formatacao_telefone(numero):
-        # Use uma expressão regular para encontrar apenas os dígitos
-        numero_limpo = re.sub(r'\D', '', numero)
-        return numero_limpo
-
-    if request.user.is_authenticated:
-        if request.method == "GET":
-            return render(request, 'index.html')
-        else:
-            usuario = info_cadastro.objects.get(email= request.user)
+        elif 'botao_confirmar' in request.POST:
+            # Processar formulário do guardião
+            usuario = info_cadastro.objects.get(email=request.user)
             mensagem = f'Estou em perigo! Segue a minha localização {usuario.endereco} bairro: {usuario.bairro}'
             telefone = remover_formatacao_telefone(usuario.telefone_guardiao)
             url_whatsapp = f"https://api.whatsapp.com/send?phone={telefone}&text={mensagem}"
             return redirect(url_whatsapp)
+        elif 'botao_confirmar2' in request.POST:
+            usuario = info_cadastro.objects.get(email=request.user)
+            nome = usuario.username
+            endereco = usuario.endereco
+            bairro = usuario.bairro
+            processo = usuario.numero_processo if usuario.numero_processo else "não tenho número de processo"
+
+            assunto = "Estou precisando de ajuda"
+            conteudo = f"nome: {nome} \n endereço: {endereco} \n bairro: {bairro} \n número do processo: {processo}"
+
+            messages.add_message(request, constants.SUCCESS, "Email enviado com sucesso!")
+
+            send_mail(
+                assunto,
+                conteudo,
+                'eletronicpc14@gmail.com',  # E-mail remetente
+                ['guilhermepimentelgui@gmail.com'],  # Lista de e-mails destinatários
+                fail_silently=False,
+            )
+            return render(request, 'aila.html')
     else:
-         if request.method == "GET":
+        return render(request, 'acesso_negado.html')
+    
+
+def remover_formatacao_telefone(numero):
+        # Use uma expressão regular para encontrar apenas os dígitos
+        numero_limpo = re.sub(r'\D', '', numero)
+        return numero_limpo
+
+def inicio(request):
+    
+
+    if request.user.is_authenticated:
+        if request.method == "GET":
+            return render(request, 'index.html')
+        elif 'botao_confirmar' in request.POST:
+            # Processar formulário do guardião
+            usuario = info_cadastro.objects.get(email=request.user)
+            mensagem = f'Estou em perigo! Segue a minha localização {usuario.endereco} bairro: {usuario.bairro}'
+            telefone = remover_formatacao_telefone(usuario.telefone_guardiao)
+            url_whatsapp = f"https://api.whatsapp.com/send?phone={telefone}&text={mensagem}"
+            return redirect(url_whatsapp)
+        elif 'botao_confirmar2' in request.POST:
+            usuario = info_cadastro.objects.get(email=request.user)
+            nome = usuario.username
+            endereco = usuario.endereco
+            bairro = usuario.bairro
+            email = usuario.email
+            processo = usuario.numero_processo if usuario.numero_processo else "não tenho número de processo"
+
+            assunto = "Estou precisando de ajuda"
+            conteudo = f"nome: {nome} \n endereço: {endereco} \n bairro: {bairro} \n número do processo: {processo}"
+
+            messages.add_message(request, constants.SUCCESS, "Email enviado com sucesso!")
+
+            send_mail(
+                assunto,
+                conteudo,
+                'eletronicpc14@gmail.com',  # E-mail remetente
+                ['guilhermepimentelgui@gmail.com'],  # Lista de e-mails destinatários
+                fail_silently=False,
+            )
+            return render(request, 'index.html')
+    else:
+        if request.method == "GET":
             return render(request, 'index2.html')
     
 
 def faq(request):
-    def remover_formatacao_telefone(numero):
-        numero_limpo = re.sub(r'\D', '', numero)
-        return numero_limpo
-
     if request.user.is_authenticated:
+
         if request.method == "GET":
             return render(request, 'faq.html')
-        else:
-            usuario = info_cadastro.objects.get(email= request.user)
-            mensagem = 'Olá, está é uma mensagem programada'
+        
+        elif 'botao_confirmar' in request.POST:
+            # Processar formulário do guardião
+            usuario = info_cadastro.objects.get(email=request.user)
+            mensagem = f'Estou em perigo! Segue a minha localização {usuario.endereco} bairro: {usuario.bairro}'
             telefone = remover_formatacao_telefone(usuario.telefone_guardiao)
             url_whatsapp = f"https://api.whatsapp.com/send?phone={telefone}&text={mensagem}"
             return redirect(url_whatsapp)
+        
+        elif 'botao_confirmar2' in request.POST:
+            usuario = info_cadastro.objects.get(email=request.user)
+            nome = usuario.username
+            endereco = usuario.endereco
+            bairro = usuario.bairro
+            email = usuario.email
+            processo = usuario.numero_processo if usuario.numero_processo else "não tenho número de processo"
+
+            assunto = "Estou precisando de ajuda"
+            conteudo = f"nome: {nome} \n endereço: {endereco} \n bairro: {bairro} \n número do processo: {processo}"
+
+            messages.add_message(request, constants.SUCCESS, "Email enviado com sucesso!")
+
+            send_mail(
+                assunto,
+                conteudo,
+                'eletronicpc14@gmail.com',  # E-mail remetente
+                ['guilhermepimentelgui@gmail.com'],  # Lista de e-mails destinatários
+                fail_silently=False,
+            )
+            return render(request, 'faq.html')
+        
     else:
-         if request.method == "GET":
+        if request.method == "GET":
             return render(request, 'faq2.html')
     
+
+def localdefala(request):
+    if request.user.is_authenticated:
+
+        if request.method == "GET":
+            localfala = relato_fala.objects.all()
+            return render(request, 'relatos.html', {'local': localfala})
+        elif 'enviar' in request.POST:
+
+            titulo = request.POST.get("ti")
+            codinome = request.POST.get("nome")
+            relato = request.POST.get("corpo")
+
+            print(titulo)
+            print(codinome)
+            print(relato)
+
+            local = relato_fala(
+                titulo = titulo,
+                codinome = codinome,
+                relato = relato
+            )
+            local.save()
+
+            localfala = relato_fala.objects.all()
+            return render(request, 'relatos.html', {'local': localfala})
+        
+        elif 'botao_confirmar' in request.POST:
+            # Processar formulário do guardião
+            usuario = info_cadastro.objects.get(email=request.user)
+            mensagem = f'Estou em perigo! Segue a minha localização {usuario.endereco} bairro: {usuario.bairro}'
+            telefone = remover_formatacao_telefone(usuario.telefone_guardiao)
+            url_whatsapp = f"https://api.whatsapp.com/send?phone={telefone}&text={mensagem}"
+            return redirect(url_whatsapp)
+        
+        elif 'botao_confirmar2' in request.POST:
+            usuario = info_cadastro.objects.get(email=request.user)
+            nome = usuario.username
+            endereco = usuario.endereco
+            bairro = usuario.bairro
+            email = usuario.email
+            processo = usuario.numero_processo if usuario.numero_processo else "não tenho número de processo"
+
+            assunto = "Estou precisando de ajuda"
+            conteudo = f"nome: {nome} \n endereço: {endereco} \n bairro: {bairro} \n número do processo: {processo}"
+
+            messages.add_message(request, constants.SUCCESS, "Email enviado com sucesso!")
+
+            send_mail(
+                assunto,
+                conteudo,
+                'eletronicpc14@gmail.com',  # E-mail remetente
+                ['guilhermepimentelgui@gmail.com'],  # Lista de e-mails destinatários
+                fail_silently=False,
+            )
+            return render(request, 'relatos.html')
+        
+    else:
+        if request.method == "GET":
+            return render(request, 'acesso_negado.html')
 # conversa = [
         #     'Oi?', 
         #     'Eae, tudo certo?',

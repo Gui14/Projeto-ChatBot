@@ -114,6 +114,12 @@ a:hover{
     width: 40%;
 }
 
+.div_profile{
+    position: absolute;
+    bottom: 600px;
+    right: 50px;
+}
+
 #popupContainer {
     display: none;
     position: fixed;
@@ -236,11 +242,30 @@ a:hover{
     .imagens{
         width: 19em;
     }
+    a{
+        font-size: 18px;
+    }
 
     #absolute {
         position: absolute;
         bottom: 80px;
         right: 80px;
+    }
+
+    #botao_profile{
+        width: 70%;
+    }
+
+    #absolute2 {
+        position: absolute;
+        bottom: 140px;
+        right: 80px;
+    }
+
+    .div_profile{
+        position: absolute;
+        bottom: 795px;
+        right: 0px;
     }
       
     #botoes-acao {

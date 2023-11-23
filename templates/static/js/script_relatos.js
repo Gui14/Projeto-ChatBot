@@ -41,10 +41,6 @@ function EnviarRelato(){
     Cancelar();
 }
 
-function ExpandirRelato(){
-    window.alert("FOI PORRA!");
-}
-
 document.getElementById("botoes-acao").addEventListener("click", function() {
     document.getElementById("popupContainer").style.display = "block";
 });

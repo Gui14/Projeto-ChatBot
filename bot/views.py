@@ -213,6 +213,9 @@ def localdefala(request):
             )
             return render(request, 'relatos.html')
         
+        elif 'cancelar' in request.POST:
+            localfala = relato_fala.objects.all()
+            return render (request, 'relatos.html', {'local': localfala})
     else:
         if request.method == "GET":
             return render(request, 'acesso_negado.html')
